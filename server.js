@@ -15,16 +15,33 @@ person.insertMany([
   {
     name: "Sarra",
     age: "34",
-    favouriteFoods: ["Pizza", "Spaghetti ", "Couscous"],
+    favouriteFoods: ["Pizza", "Spaghetti "],
   },
   { name: "Ahlem", age: "35", favouriteFoods: ["Marmez", "Couscous"] },
-  { name: "Sarra", age: "15", favouriteFoods: ["Chapati", "Ma9loub", "Pizza"] },
+  { name: "Sarra", age: "15", favouriteFoods: ["Chapati", "Ma9loub"] },
   { name: "Maha", age: "42", favouriteFoods: ["Couscous", "Jelbana"] },
   { name: "leila", age: "27", favouriteFoods: ["Pizza", "Riz"] },
 ]);
 
 person
+  .find()
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
+
+person
   .findById("6419b48f9039189ba0e4bf81")
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
+
+findByIdAndUpdate(
+  "6419b48f9039189ba0e4bf80",
+  { $set: { age: 20 } },
+  { new: true }
+)
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
+
+Person.findByIdAndDelete("6419b48f9039189ba0e4bf80")
   .then((res) => console.log(res))
   .catch((err) => console.log(err));
 
